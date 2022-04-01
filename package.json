@@ -1,0 +1,117 @@
+{
+  "name": "projectname",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "npm": ">=8.5.5",
+    "yarn": ">=1.22.18",
+    "cocoapods": ">=1.22.11",
+    "node": ">=14.17.6"
+  },
+  "scripts": {
+    "reinstall": "rm -rf node_modules/ && yarn && cd ios && rm -f Podfile.lock && pod install && cd ..",
+    "start": "react-native start",
+    "android:Dev-Debug": "react-native run-android --variant=developmentDebug",
+    "android:Dev-Release": "react-native run-android --variant=developmentRelease",
+    "android:Stg-Debug": "react-native run-android --variant=stagingDebug",
+    "android:Stg-Release": "react-native run-android --variant=stagingRelease",
+    "android:Prod-Debug": "react-native run-android --variant=productionDebug",
+    "android:Prod-Release": "react-native run-android --variant=productionRelease",
+    "ios:dev": "react-native run-ios --scheme 'reactNativeTemplate.development'",
+    "ios:staging": "react-native run-ios --scheme 'reactNativeTemplate.staging'",
+    "ios:production": "react-native run-ios --scheme 'reactNativeTemplate.production'",
+    "clean:android": "cd android && gradlew clean",
+    "lint": "eslint \"src/**/*{.ts,.tsx}\"",
+    "lint:fix": "eslint --fix \"src/**/*{.ts,.tsx}\"",
+    "prettier:fix": "prettier --parser typescript --write src/**/*.{json,ts,tsx}",
+    "check-packages-updates": "yarn outdated"
+  },
+  "dependencies": {
+    "@bam.tech/react-native-make": "^3.0.3",
+    "@react-native-async-storage/async-storage": "^1.16.1",
+    "@react-native-community/checkbox": "^0.5.12",
+    "@react-native-community/clipboard": "^1.5.1",
+    "@react-navigation/bottom-tabs": "^6.2.0",
+    "@react-navigation/material-bottom-tabs": "^6.1.1",
+    "@react-navigation/material-top-tabs": "^6.1.1",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/stack": "^6.1.1",
+    "@types/lodash-es": "^4.17.6",
+    "@types/react-i18next": "^8.1.0",
+    "@types/unist": "^2.0.6",
+    "axios": "^0.26.1",
+    "color": "^4.2.1",
+    "i18next": "^19.8.3",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "mobx": "^6.5.0",
+    "mobx-react-lite": "^3.3.0",
+    "react": "^17.0.2",
+    "react-i18next": "^11.7.3",
+    "react-native": "^0.67.3",
+    "react-native-bootsplash": "^3.2.6",
+    "react-native-config": "^1.4.5",
+    "react-native-date-picker": "^4.2.0",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-localize": "^2.2.0",
+    "react-native-modalize": "^2.0.13",
+    "react-native-pager-view": "^5.4.11",
+    "react-native-paper": "^4.11.2",
+    "react-native-permissions": "^3.3.0",
+    "react-native-portalize": "^1.0.7",
+    "react-native-safe-area-context": "^4.1.2",
+    "react-native-screens": "^3.13.1",
+    "react-native-svg": "^12.3.0",
+    "react-native-switch-toggle": "^2.2.1",
+    "react-native-tab-view": "^3.1.1",
+    "react-native-vector-icons": "^9.1.0",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/plugin-proposal-decorators": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/runtime": "^7.17.2",
+    "@types/color": "^3.0.3",
+    "@types/lodash": "^4.14.179",
+    "@types/react-native": "^0.67.2",
+    "@types/react-native-vector-icons": "^6.4.10",
+    "@types/yup": "^0.29.9",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "babel-jest": "^27.5.1",
+    "eslint": "^7.13.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^11.2.6",
+    "metro-react-native-babel-preset": "^0.66.2",
+    "prettier": "^2.4.1",
+    "typescript": "^4.6.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix \"src/**/*{.ts,.tsx}\"",
+      "prettier --parser typescript --write src/**/*.{ts,tsx}",
+      "git add"
+    ]
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
